@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class ArticlesControllerTest < ActionController::TestCase
+class outfitsControllerTest < ActionController::TestCase
   setup do
-    @article = articles(:one)
+    @outfit = outfits(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:articles)
+    assert_not_nil assigns(:outfits)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create article" do
-    assert_difference('Article.count') do
-      post :create, article: { content: @article.content, name: @article.name }
+  test "should create outfit" do
+    assert_difference('outfit.count') do
+      post :create, outfit: { content: @outfit.content, name: @outfit.name }
     end
 
-    assert_redirected_to article_path(assigns(:article))
+    assert_redirected_to outfit_path(assigns(:outfit))
   end
 
-  test "should show article" do
-    get :show, id: @article
+  test "should show outfit" do
+    get :show, id: @outfit
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @article
+    get :edit, id: @outfit
     assert_response :success
   end
 
-  test "should update article" do
-    patch :update, id: @article, article: { content: @article.content, name: @article.name }
-    assert_redirected_to article_path(assigns(:article))
+  test "should update outfit" do
+    patch :update, id: @outfit, outfit: { content: @outfit.content, name: @outfit.name }
+    assert_redirected_to outfit_path(assigns(:outfit))
   end
 
-  test "should destroy article" do
-    assert_difference('Article.count', -1) do
-      delete :destroy, id: @article
+  test "should destroy outfit" do
+    assert_difference('outfit.count', -1) do
+      delete :destroy, id: @outfit
     end
 
-    assert_redirected_to articles_path
+    assert_redirected_to outfits_path
   end
 end

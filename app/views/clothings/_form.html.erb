@@ -1,10 +1,10 @@
-<%= form_for(@author) do |f| %>
-  <% if @author.errors.any? %>
+<%= form_for(@clothing) do |f| %>
+  <% if @clothing.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@author.errors.count, "error") %> prohibited this author from being saved:</h2>
+      <h2><%= pluralize(@clothing.errors.count, "error") %> prohibited this Clothing from being saved:</h2>
 
       <ul>
-      <% @author.errors.full_messages.each do |message| %>
+      <% @clothing.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

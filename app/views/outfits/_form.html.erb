@@ -1,10 +1,10 @@
-<%= form_for(@article) do |f| %>
-  <% if @article.errors.any? %>
+<%= form_for(@outfit) do |f| %>
+  <% if @outfit.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+      <h2><%= pluralize(@outfit.errors.count, "error") %> prohibited this outfit from being saved:</h2>
 
       <ul>
-      <% @article.errors.full_messages.each do |message| %>
+      <% @outfit.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -25,13 +25,13 @@
   </div>
 
   <div class="field">
-  <%= f.label :author_ids %><br />
-  <%= f.select :author_ids, Author.all.collect {|a| [a.name, a.id] }, {}, :multiple => true %>
+  <%= f.label :clothing_ids %><br />
+  <%= f.select :clothing_ids, Clothing.all.collect {|a| [a.name, a.id] }, {}, :multiple => true %>
   </div>
 
   <div class="field">
-  <%= f.label :author_ids_2 %><br />
-  <%= f.select :author_ids, Author.all.collect {|a| [a.name, a.id]  }, {}, :multiple => true %>
+  <%= f.label :clothing_ids_2 %><br />
+  <%= f.select :clothing_ids, Clothing.all.collect {|a| [a.name, a.id]  }, {}, :multiple => true %>
   </div>
 
 

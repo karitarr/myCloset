@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @outfit.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @outfit.content %>
+</p>
+
+<p>
+  <strong>Published:</strong>
+  <%= @outfit.published_on %>
+</p>
+
+<p>
+  <strong>Clothing:</strong>
+  <%= @outfit.clothing_ids %>
+</p>
+
+<%= link_to 'Edit', edit_outfit_path(@outfit) %> |
+<%= link_to 'Back', outfits_path %>
