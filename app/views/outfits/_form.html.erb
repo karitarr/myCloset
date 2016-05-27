@@ -12,28 +12,42 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :event %><br>
+    <%= f.text_field :event %>
   </div>
   <div class="field">
-    <%= f.label :published_on %><br>
-    <%= f.date_select :published_on %>
+    <%= f.label :worn_on %><br>
+    <%= f.date_select :worn_on %>
   </div>
   <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
   </div>
 
   <div class="field">
-  <%= f.label :clothing_ids %><br />
-  <%= f.select :clothing_ids, Clothing.all.collect {|a| [a.name, a.id] }, {}, :multiple => true %>
+  <%= f.label :tops %><br />
+  <%= f.select(:clothing_ids, Clothing.where(category: "Top").collect {|a| [a.brand + " - " + a.description] }, {}, :multiple => true) %>
+  </div>
+
+    <div class="field">
+  <%= f.label :bottoms %><br />
+  <%= f.select(:clothing_ids, Clothing.where(category: "Bottom").collect {|a| [a.brand + " - " + a.description] }, {}, :multiple => true) %>
+  </div>
+
+    <div class="field">
+  <%= f.label :jackets %><br />
+  <%= f.select(:clothing_ids, Clothing.where(category: "Jacket").collect {|a| [a.brand + " - " + a.description] }, {}, :multiple => true) %>
   </div>
 
   <div class="field">
-  <%= f.label :clothing_ids_2 %><br />
-  <%= f.select :clothing_ids, Clothing.all.collect {|a| [a.name, a.id]  }, {}, :multiple => true %>
+  <%= f.label :shoes %><br />
+  <%= f.select(:clothing_ids, Clothing.where(category: "Shoes").collect {|a| [a.brand + " - " + a.description] }, {}, :multiple => true) %>
   </div>
 
+  <div class="field">
+  <%= f.label :accessories %><br />
+  <%= f.select(:clothing_ids, Clothing.where(category: "Accessory").collect {|a| [a.brand + " - " + a.description] }, {}, :multiple => true) %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

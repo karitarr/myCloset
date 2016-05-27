@@ -12,8 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+
+   <div class="field">
+  <%= f.label :categoty %><br />
+  <%= f.select :category, options_for_select([
+      ['Top'],['Bottom'],['Jacket'],['Shoes'],['Accessory']
+    ]) , {} %>
+  </div>
+
+    <div class="field">
+    <%= f.label :brand %><br>
+    <%= f.text_field :brand %>
+  </div>
+    <div class="field">
+    <%= f.label :color %><br>
+    <%= f.text_field :color %>
   </div>
   <div class="actions">
     <%= f.submit %>

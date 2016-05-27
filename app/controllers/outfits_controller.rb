@@ -14,9 +14,7 @@ class OutfitsController < ApplicationController
 
   # GET /outfits/new
   def new
-    print "***"
     @outfit = Outfit.new
-        print @outfit.to_s
 
   end
 
@@ -73,6 +71,6 @@ class OutfitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def outfit_params
-      params.require(:outfit).permit(:name, :content, :published_on, clothing_ids: [])
+      params.require(:outfit).permit(:event, :notes, :worn_on, clothing_ids: [])
     end
 end
