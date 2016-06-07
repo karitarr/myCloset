@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  resources :clothings
+  resources :clothings do
+      collection { post :upload }
+    end
   resources :outfits
+  resources :images do
+      collection { post :upload }
+    end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

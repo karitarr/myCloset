@@ -61,6 +61,13 @@ class ClothingsController < ApplicationController
     end
   end
 
+  def upload
+  uploaded_io = params[:person][:picture]
+  File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+    file.write(uploaded_io.read)
+  end
+end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_clothing
@@ -69,6 +76,6 @@ class ClothingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clothing_params
-      params.require(:clothing).permit(:description, :category, :brand, :color)
+      params.require(:clothing).permit(:description, :category, :brand, :color, :images)
     end
 end
