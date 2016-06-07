@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ClothingsController < ApplicationController
   before_action :set_clothing, only: [:show, :edit, :update, :destroy]
 
@@ -26,6 +27,15 @@ class ClothingsController < ApplicationController
   def create
     @clothing = Clothing.new(clothing_params)
 
+     # DataFile.save_file(params[:upload])
+  #   # redirect_to clothings_path(:clothing_id => params[:clothing_id])
+      #  uploaded_io = params[:clothing_params][:datafile]
+      uploaded_io = 'test_upload_filename'
+
+
+   File.open(Rails.root.join('public', 'uploads', uploaded_io), 'wb')  do |file| file.write(clothing_params[:datafile].read)
+   end
+
     respond_to do |format|
       if @clothing.save
         format.html { redirect_to @clothing, notice: 'Clothing was successfully created.' }
@@ -35,13 +45,18 @@ class ClothingsController < ApplicationController
         format.json { render json: @clothing.errors, status: :unprocessable_entity }
       end
     end
+
+
   end
+
+
 
   # PATCH/PUT /clothings/1
   # PATCH/PUT /clothings/1.json
   def update
     respond_to do |format|
       if @clothing.update(clothing_params)
+
         format.html { redirect_to @clothing, notice: 'Clothing was successfully updated.' }
         format.json { render :show, status: :ok, location: @clothing }
       else
