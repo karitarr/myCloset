@@ -27,7 +27,7 @@ class ClothingsController < ApplicationController
   def create
     @clothing = Clothing.new(clothing_params)
     uploaded_io = params[:clothing][:datafile]
-    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb')  do |file| file.write(clothing_params[:datafile].read)
+    File.open(("/Users/kari_tarr/" + "#{uploaded_io.original_filename}"), 'wb')  do |file| file.write(clothing_params[:datafile].read)
     end
 
     respond_to do |format|
