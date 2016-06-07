@@ -30,29 +30,25 @@
     <%= f.text_field :brand %>
   </div>
       <div class="field">
-    <%= f.label :images %><br>
-    <%= f.text_field :images %>
+    <%= f.label :datafile %><br>
+    <%= f.text_field :"images" %>
   </div>
 
-    <div class="field">
+  <div class="field">
     <%= f.label :color %><br>
     <%= f.text_field :color %>
   </div>
+
+  <div class="actions">
+    <%= f.file_field :datafile %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 
-<h1>File Upload</h1>
-  <%= form_tag({:action => 'upload', :clothing_id => @clothing.id}, :multipart => true) do %>
-    <p><label for="upload_file">Select File</label>
-    <%= file_field 'upload', 'datafile' %></p>
-    <%= submit_tag "Upload" %>
-  <% end %>
 
-  <% @images.each do |image| %>
-     <%= image.id %><br/>
-     <%= image.name %>
-  <% end %>
+
 
 
 <% end %>

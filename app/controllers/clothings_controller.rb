@@ -64,7 +64,7 @@ class ClothingsController < ApplicationController
   def upload
   uploaded_io = params[:person][:picture]
   File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
-    file.write(uploaded_io.read)
+    file.write(clothing_params[:datafile])
   end
 end
 
@@ -76,6 +76,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clothing_params
-      params.require(:clothing).permit(:description, :category, :brand, :color, :images)
+      params.require(:clothing).permit(:description, :category, :brand, :color, :datafile)
     end
 end
