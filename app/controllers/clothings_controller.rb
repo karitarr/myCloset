@@ -26,15 +26,9 @@ class ClothingsController < ApplicationController
   # POST /clothings.json
   def create
     @clothing = Clothing.new(clothing_params)
-
-     # DataFile.save_file(params[:upload])
-  #   # redirect_to clothings_path(:clothing_id => params[:clothing_id])
-      #  uploaded_io = params[:clothing_params][:datafile]
-      uploaded_io = 'test_upload_filename'
-
-
-   File.open(Rails.root.join('public', 'uploads', uploaded_io), 'wb')  do |file| file.write(clothing_params[:datafile].read)
-   end
+    uploaded_io = params[:clothing][:datafile]
+    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb')  do |file| file.write(clothing_params[:datafile].read)
+    end
 
     respond_to do |format|
       if @clothing.save
