@@ -1,57 +1,6 @@
 <h1>Editing Clothing</h1>
 
-<%= form_for(@clothing) do |f| %>
-  <% if @clothing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@clothing.errors.count, "error") %> prohibited this Clothing from being saved:</h2>
-
-      <ul>
-      <% @clothing.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-
-   <div class="field">
-  <%= f.label :categoty %><br />
-  <%= f.select :category, options_for_select([
-      ['Top'],['Bottom'],['Jacket'],['Shoes'],['Accessory']
-    ]) , {} %>
-  </div>
-
-    <div class="field">
-    <%= f.label :brand %><br>
-    <%= f.text_field :brand %>
-  </div>
-      <div class="field">
-    <%= f.label :datafile %><br>
-    <%= f.text_field :"images" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :color %><br>
-    <%= f.text_field :color %>
-  </div>
-
-  <div class="actions">
-    <%= f.file_field :datafile %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
-
-
-
-
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Show', @clothing %> |
 <%= link_to 'Back', clothings_path %>

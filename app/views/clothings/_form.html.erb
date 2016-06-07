@@ -28,17 +28,25 @@
     <%= f.text_field :brand %>
   </div>
       <div class="field">
-    <%= f.label :images %><br>
-    <%= f.text_field :images %>
+    <%= f.label :datafile %><br>
+    <%= f.text_field :"datafile" %>
   </div>
 
-    <div class="field">
+  <div class="field">
     <%= f.label :color %><br>
     <%= f.text_field :color %>
   </div>
+
+  <div class="actions">
+    <%= f.file_field :datafile %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
+
+
 
 
 <% end %>
