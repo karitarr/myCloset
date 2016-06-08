@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ClothingsController < ApplicationController
   before_action :set_clothing, only: [:show, :edit, :update, :destroy]
 
@@ -25,6 +26,8 @@ class ClothingsController < ApplicationController
   # POST /clothings.json
   def create
     @clothing = Clothing.new(clothing_params)
+    Image.save_file(clothing_params[:datafile])
+
 
     respond_to do |format|
       if @clothing.save
@@ -35,13 +38,18 @@ class ClothingsController < ApplicationController
         format.json { render json: @clothing.errors, status: :unprocessable_entity }
       end
     end
+
+
   end
+
+
 
   # PATCH/PUT /clothings/1
   # PATCH/PUT /clothings/1.json
   def update
     respond_to do |format|
       if @clothing.update(clothing_params)
+
         format.html { redirect_to @clothing, notice: 'Clothing was successfully updated.' }
         format.json { render :show, status: :ok, location: @clothing }
       else
@@ -69,6 +77,6 @@ class ClothingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clothing_params
-      params.require(:clothing).permit(:description, :category, :brand, :color)
+      params.require(:clothing).permit(:description, :category, :brand, :color, :datafile)
     end
 end
