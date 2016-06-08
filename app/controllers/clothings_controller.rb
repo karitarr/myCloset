@@ -26,9 +26,8 @@ class ClothingsController < ApplicationController
   # POST /clothings.json
   def create
     @clothing = Clothing.new(clothing_params)
-    uploaded_io = params[:clothing][:datafile]
-    File.open(("/Users/kari_tarr/" + "#{uploaded_io.original_filename}"), 'wb')  do |file| file.write(clothing_params[:datafile].read)
-    end
+    Image.save_file(clothing_params[:datafile])
+
 
     respond_to do |format|
       if @clothing.save
